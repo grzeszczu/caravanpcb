@@ -161,6 +161,8 @@ esp_err_t activate_get_handler(httpd_req_t *req) {
     ledc_update_duty(PWM_MODE, PWM_CHANNEL_IN1);
     ledc_update_duty(PWM_MODE, PWM_CHANNEL_IN2);
 
+    vTaskDelay(pdMS_TO_TICKS(3000)); // Silnik działa przez 3 sekundy
+
     httpd_resp_send(req, "Silnik uruchomiony", HTTPD_RESP_USE_STRLEN);
     return ESP_OK;
 }
