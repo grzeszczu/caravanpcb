@@ -155,9 +155,9 @@ esp_err_t activate_get_handler(httpd_req_t *req) {
 
     vTaskDelay(pdMS_TO_TICKS(3000)); // Silnik działa przez 3 sekundy
 
-    // Zatrzymanie silnika
+    // Cofanie
     ledc_set_duty(PWM_MODE, PWM_CHANNEL_IN1, 0);
-    ledc_set_duty(PWM_MODE, PWM_CHANNEL_IN2, 0);
+    ledc_set_duty(PWM_MODE, PWM_CHANNEL_IN2, PWM_DUTY);
     ledc_update_duty(PWM_MODE, PWM_CHANNEL_IN1);
     ledc_update_duty(PWM_MODE, PWM_CHANNEL_IN2);
 
